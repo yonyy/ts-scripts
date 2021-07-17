@@ -15,3 +15,5 @@ console.log(t.getTotal());
 console.log(`'a' exists? ${t.exists('a')}`);
 console.log(`'e' exists? ${t.exists('e')}`);
 console.log(`'f' exists? ${t.exists('f')}`);
+
+t.print();

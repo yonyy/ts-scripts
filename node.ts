@@ -34,6 +34,16 @@ class TreeNode<Type> {
 		return true;
 	}
 
+	delete(): TreeNode<Type> | null {
+		
+		const newRoot = this.right;
+		const leftSubTree = newRoot.left;
+		newRoot.left = this.left;
+		
+
+		return this;
+	}
+
 	getValue(): Type {
 		return this.value;
 	}
@@ -55,6 +65,15 @@ class TreeNode<Type> {
 
 	isValue(item: Type): boolean {
 		return item === this.value;
+	}
+
+	print() {
+		console.log(this.getValue());
+
+		if (this.left)
+			this.left.print();
+		if (this.right)
+			this.right.print();
 	}
 }
 

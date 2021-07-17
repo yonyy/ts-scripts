@@ -36,3 +36,27 @@ test('non-existing item are not found', () => {
 
 	expect(t.exists(4)).toBe(false);
 });
+
+test('in-order traversal', () => {
+	const t = new Tree();
+	console.log = jest.fn();
+
+	t.addItem(4);
+	t.addItem(3);
+	t.addItem(5);
+	t.addItem(1);
+	t.addItem(2);
+	t.addItem(7);
+	t.addItem(6);
+
+	t.print();
+
+	expect(console.log).toHaveBeenCalledTimes(7);
+	expect(console.log).toHaveBeenCalledWith(1)
+	expect(console.log).toHaveBeenCalledWith(2)
+	expect(console.log).toHaveBeenCalledWith(3)
+	expect(console.log).toHaveBeenCalledWith(4)
+	expect(console.log).toHaveBeenCalledWith(5)
+	expect(console.log).toHaveBeenCalledWith(6)
+	expect(console.log).toHaveBeenCalledWith(7)
+})

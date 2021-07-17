@@ -1,7 +1,7 @@
 import TreeNode from "./node";
 
 class Tree<Type> {
-	private root!: TreeNode<Type>;
+	private root!: TreeNode<Type> | null;
 	private total: number = 0;
 
 	constructor() {}
@@ -21,6 +21,21 @@ class Tree<Type> {
 		return added;
 	}
 
+	removeItem(item: Type): boolean {
+		let removed = false;
+		if (!this.root)
+			return false;
+		
+		const node = this.root.getNode(item);
+
+		if (node === this.root)
+			this.root = node.delete();
+		else
+			node?.delete();
+
+		return node !== null;
+	}
+
 	exists(item: Type): boolean {
 		if (!this.root)
 			return false;
@@ -31,6 +46,13 @@ class Tree<Type> {
 
 	getTotal(): number {
 		return this.total;
+	}
+
+	print(): void {
+		if (!this.root)
+			return;
+		
+		this.root.print();
 	}
 }
 
