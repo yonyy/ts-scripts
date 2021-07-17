@@ -1,0 +1,37 @@
+import TreeNode from "./node";
+
+class Tree<Type> {
+	private root!: TreeNode<Type>;
+	private total: number = 0;
+
+	constructor() {}
+
+	addItem(item: Type): boolean {
+		let added = false;
+		if (!this.root) {
+			this.root = new TreeNode<Type>(item);
+			added = true;
+		} else {
+			added = this.root.addItem(item);
+		}
+
+		if (added)
+			this.total++;
+
+		return added;
+	}
+
+	exists(item: Type): boolean {
+		if (!this.root)
+			return false;
+		
+		const node = this.root.getNode(item);
+		return node !== null;
+	}
+
+	getTotal(): number {
+		return this.total;
+	}
+}
+
+export default Tree;
