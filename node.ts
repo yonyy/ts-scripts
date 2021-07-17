@@ -35,13 +35,17 @@ class TreeNode<Type> {
 	}
 
 	delete(): TreeNode<Type> | null {
-		
-		const newRoot = this.right;
-		const leftSubTree = newRoot.left;
+		if (!this.right && !this.left)
+			return null;
+
+		const newRoot = this.right ? this.right : this.left;
+		const subTree = newRoot.left;
 		newRoot.left = this.left;
 		
+		// if (subTree)
+		// 	newRoot.left.addItem();
 
-		return this;
+		return newRoot;
 	}
 
 	getValue(): Type {
@@ -68,10 +72,11 @@ class TreeNode<Type> {
 	}
 
 	print() {
-		console.log(this.getValue());
-
 		if (this.left)
 			this.left.print();
+
+		console.log(this.getValue());
+
 		if (this.right)
 			this.right.print();
 	}

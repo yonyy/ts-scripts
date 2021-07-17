@@ -22,7 +22,6 @@ class Tree<Type> {
 	}
 
 	removeItem(item: Type): boolean {
-		let removed = false;
 		if (!this.root)
 			return false;
 		
@@ -33,7 +32,10 @@ class Tree<Type> {
 		else
 			node?.delete();
 
-		return node !== null;
+		if (node)
+			this.total--;
+		
+		return !!node;
 	}
 
 	exists(item: Type): boolean {
@@ -41,7 +43,7 @@ class Tree<Type> {
 			return false;
 		
 		const node = this.root.getNode(item);
-		return node !== null;
+		return !!node;
 	}
 
 	getTotal(): number {
