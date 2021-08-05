@@ -30,17 +30,17 @@ Random function scripts
 ## DAG
 DAG with weights
 
-```typscript
-	const g = new Graph<string>();
-	const aId = g.add('a');
-	const bId = g.add('b');
-	const cId = g.add('c');
-	const dId = g.add('d');
+```typescript
+const g = new Graph<string>();
+const aId = g.add('a');
+const bId = g.add('b');
+const cId = g.add('c');
+const dId = g.add('d');
 
-	g.addEdge(aId, bId, 10);
-	g.addEdge(aId, cId, 11);
-	g.addEdge(bId, dId, 12);
-	g.addEdge(cId, dId, 13);
+g.addEdge(aId, bId, 10);
+g.addEdge(aId, cId, 11);
+g.addEdge(bId, dId, 12);
+g.addEdge(cId, dId, 13);
 
-	g.getTotalWeight(); // 45
+g.getTotalWeight(); // 45
 ```
