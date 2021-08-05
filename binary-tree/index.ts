@@ -1,6 +1,6 @@
 import Tree from "./tree";
 
-const t = new Tree<String>();
+const t = new Tree<string>();
 
 console.log(t.getTotal());
 

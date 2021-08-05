@@ -7,7 +7,7 @@ Simple binary tree implementation for finding and adding nodes
 ```typescript
 import Tree from "./tree";
 
-const t = new Tree<String>();
+const t = new Tree<string>();
 
 t.getTotal(); // 0
 
