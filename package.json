@@ -1,7 +1,7 @@
 {
   "scripts": {
     "tree": "ts-node tree/index.ts",
-    "test": "node runTest"
+    "test": "jest"
   },
   "devDependencies": {
     "@types/jest": "^26.0.24",
